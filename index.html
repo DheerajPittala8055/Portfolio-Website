@@ -4,165 +4,343 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dheeraj Pittala</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a2d9d5b2f6.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
-    html {
+    :root {
+      --bg-color: #f4f4f9;
+      --text-color: #333;
+      --card-bg: white;
+      --primary-color: #0078ff;
+      --secondary-color: #00c6ff;
+    }
+    body.dark {
+      --bg-color: #1a1a1a;
+      --text-color: #eee;
+      --card-bg: #2a2a2a;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: var(--bg-color);
+      color: var(--text-color);
       scroll-behavior: smooth;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* Navigation Bar */
+    nav {
+      position: sticky;
+      top: 0;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      display: flex;
+      justify-content: center;
+      padding: 0.8rem;
+      z-index: 1000;
+    }
+    nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      text-align: center;
+      padding: 3rem 1rem;
+      position: relative;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+    .toggle-theme {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: white;
+      border: none;
+      border-radius: 50%;
+      padding: 0.5rem;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: background 0.3s;
+    }
+    .toggle-theme:hover { background: #ddd; }
+
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
+    }
+    h2 {
+      border-bottom: 3px solid var(--primary-color);
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    /* About Section */
+    #about p {
+      line-height: 1.7;
+      text-align: justify;
+    }
+
+    /* Skills Section */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .skill-card {
+      background: var(--card-bg);
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease-in-out;
     }
     .skill-card:hover {
       transform: translateY(-5px);
-      transition: all 0.3s ease;
     }
-    #goTop {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      background-color: #2563eb;
+    .skill-card img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Projects */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      background: var(--card-bg);
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease-in-out;
+    }
+    .card:hover { transform: scale(1.05); }
+
+    /* Contact */
+    .contact-icons {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      font-size: 1.8rem;
+    }
+    .contact-icons a {
+      color: var(--primary-color);
+      transition: color 0.3s;
+    }
+    .contact-icons a:hover {
+      color: var(--secondary-color);
+    }
+
+    /* Form */
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 600px;
+      margin: 2rem auto;
+    }
+    input, textarea {
+      margin-bottom: 1rem;
+      padding: 0.8rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-family: 'Poppins', sans-serif;
+    }
+    textarea { resize: none; }
+    button {
+      background: var(--primary-color);
       color: white;
-      padding: 10px 15px;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    button:hover { background: var(--secondary-color); }
+
+    /* Footer */
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      position: relative;
+    }
+
+    /* Go to Top Button */
+    #topBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--primary-color);
+      color: white;
+      border: none;
       border-radius: 50%;
-      font-size: 20px;
+      padding: 0.7rem 0.9rem;
+      font-size: 1.2rem;
       cursor: pointer;
       display: none;
-      z-index: 100;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
     }
-    #goTop:hover {
-      background-color: #1e40af;
+    #topBtn:hover {
+      background: var(--secondary-color);
     }
   </style>
 </head>
 
-<body class="bg-gray-50 text-gray-900 font-sans">
+<body>
 
-  <!-- Navbar -->
-  <header class="bg-blue-600 text-white fixed w-full z-50 shadow-md">
-    <div class="container mx-auto flex justify-between items-center p-4">
-      <h1 class="text-2xl font-bold">Dheeraj Pittala</h1>
-      <nav class="space-x-4">
-        <a href="#about" class="hover:underline">About</a>
-        <a href="#skills" class="hover:underline">Skills</a>
-        <a href="#projects" class="hover:underline">Projects</a>
-        <a href="#contact" class="hover:underline">Contact</a>
-        <a href="#form" class="hover:underline">Submit Form</a>
-      </nav>
-    </div>
+  <!-- Navigation -->
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+    <a href="#form">Submit Form</a>
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <button class="toggle-theme" onclick="toggleTheme()">🌙</button>
+    <h1>Dheeraj Pittala</h1>
+    <p>Data Analyst | Data Engineer | Aspiring Gen-AI Engineer</p>
   </header>
 
-  <!-- Hero Section -->
-  <section class="h-screen flex flex-col justify-center items-center bg-gradient-to-b from-blue-100 to-white text-center pt-20">
-    <h2 class="text-5xl font-extrabold text-blue-700 mb-3">Dheeraj Pittala</h2>
-    <p class="text-xl text-gray-700 font-medium">Data Analyst | Data Engineer | Aspiring Gen-AI Engineer</p>
+  <!-- About -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I’m a data-driven professional passionate about transforming complex data into meaningful insights. 
+      With a strong foundation in data analysis, engineering, and automation, I specialize in creating scalable 
+      solutions across cloud platforms like Azure and GCP. Currently, I’m expanding my expertise into Generative AI 
+      to integrate intelligence and automation into modern data systems.
+    </p>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="py-20 bg-white">
-    <div class="container mx-auto px-6 text-center">
-      <h3 class="text-3xl font-semibold mb-6 text-blue-600">About Me</h3>
-      <p class="text-gray-700 max-w-3xl mx-auto leading-relaxed">
-        I am a data-driven professional with over 7 years of experience in Data Analysis, Data Engineering, and DevOps. 
-        My expertise lies in managing large-scale data pipelines, optimizing ETL processes, and generating actionable business insights. 
-        Passionate about AI and automation, I’m currently expanding my skills toward Generative AI applications and intelligent data systems.
-      </p>
-    </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section id="skills" class="py-20 bg-gray-100">
-    <div class="container mx-auto px-6 text-center">
-      <h3 class="text-3xl font-semibold mb-10 text-blue-600">Skills</h3>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-        <div class="skill-card bg-white p-6 rounded-2xl shadow hover:shadow-lg">
-          <img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png" class="h-12 mx-auto mb-4" alt="Python">
-          <h4 class="font-semibold">Python</h4>
-        </div>
-        <div class="skill-card bg-white p-6 rounded-2xl shadow hover:shadow-lg">
-          <img src="https://cdn-icons-png.flaticon.com/512/2772/2772128.png" class="h-12 mx-auto mb-4" alt="SQL">
-          <h4 class="font-semibold">SQL & Databases</h4>
-        </div>
-        <div class="skill-card bg-white p-6 rounded-2xl shadow hover:shadow-lg">
-          <img src="https://cdn-icons-png.flaticon.com/512/873/873120.png" class="h-12 mx-auto mb-4" alt="Power BI">
-          <h4 class="font-semibold">Power BI & Tableau</h4>
-        </div>
-        <div class="skill-card bg-white p-6 rounded-2xl shadow hover:shadow-lg">
-          <img src="https://cdn-icons-png.flaticon.com/512/873/873107.png" class="h-12 mx-auto mb-4" alt="Azure">
-          <h4 class="font-semibold">Azure & Cloud Platforms</h4>
-        </div>
-        <div class="skill-card bg-white p-6 rounded-2xl shadow hover:shadow-lg">
-          <img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png" class="h-12 mx-auto mb-4" alt="GitHub">
-          <h4 class="font-semibold">GitHub & DevOps</h4>
-        </div>
-        <div class="skill-card bg-white p-6 rounded-2xl shadow hover:shadow-lg">
-          <img src="https://cdn-icons-png.flaticon.com/512/2103/2103665.png" class="h-12 mx-auto mb-4" alt="Machine Learning">
-          <h4 class="font-semibold">Machine Learning</h4>
-        </div>
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" alt="Cloud">
+        <h4>Cloud & Data Engineering</h4>
+        <p>Azure | GCP | DataProc | BigQuery | Snowflake</p>
+      </div>
+      <div class="skill-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png" alt="Python">
+        <h4>Programming</h4>
+        <p>Python | SQL | R | Java</p>
+      </div>
+      <div class="skill-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2103/2103665.png" alt="BI">
+        <h4>BI & Reporting</h4>
+        <p>Power BI | Tableau</p>
+      </div>
+      <div class="skill-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2621/2621140.png" alt="DevOps">
+        <h4>DevOps & Automation</h4>
+        <p>Jenkins | Kubernetes | Git</p>
+      </div>
+      <div class="skill-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2103/2103650.png" alt="AI">
+        <h4>Machine Learning & AI</h4>
+        <p>TensorFlow | Scikit-learn</p>
       </div>
     </div>
   </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="py-20 bg-white">
-    <div class="container mx-auto px-6 text-center">
-      <h3 class="text-3xl font-semibold mb-10 text-blue-600">Projects</h3>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="bg-gray-50 p-6 rounded-2xl shadow hover:shadow-lg">
-          <h4 class="text-xl font-semibold mb-2">Predictive Analytics for Transportation</h4>
-          <p class="text-gray-600">
-            Developed data-driven predictive models using Power BI and Azure to optimize vehicle usage and reduce downtime by 20%.
-          </p>
-        </div>
-        <div class="bg-gray-50 p-6 rounded-2xl shadow hover:shadow-lg">
-          <h4 class="text-xl font-semibold mb-2">Data Pipeline Automation</h4>
-          <p class="text-gray-600">
-            Automated ETL workflows with Azure Data Factory, improving data processing efficiency by 30%.
-          </p>
-        </div>
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="card">
+        <strong>🚗 Transportation Data Optimization</strong>
+        <p>Optimized ETL processes for UNT Transportation, improving data accuracy by 30%.</p>
+      </div>
+      <div class="card">
+        <strong>📊 Power BI Sales Dashboard</strong>
+        <p>Interactive dashboard for real-time business insights, reducing decision time by 40%.</p>
+      </div>
+      <div class="card">
+        <strong>☁ Cloud Data Pipeline</strong>
+        <p>Built automated Azure Data Factory pipelines for data transformation and reporting.</p>
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="py-20 bg-gray-100">
-    <div class="container mx-auto px-6 text-center">
-      <h3 class="text-3xl font-semibold mb-6 text-blue-600">Contact</h3>
-      <div class="flex justify-center space-x-6 text-3xl">
-        <a href="mailto:dheerajkmp8055@gmail.com" class="text-red-500 hover:text-red-600"><i class="fab fa-google"></i></a>
-        <a href="https://www.linkedin.com/in/dheeraj-pittala/" target="_blank" class="text-blue-700 hover:text-blue-800"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/DheerajPittala8055" target="_blank" class="text-gray-800 hover:text-black"><i class="fab fa-github"></i></a>
-      </div>
-      <p class="mt-4 text-gray-700 font-medium">Mobile: +1 940 333 5445</p>
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p style="text-align:center;">📞 +1 940 333 5445</p>
+    <div class="contact-icons">
+      <a href="mailto:dheerajkmp8055@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/dheeraj-pittala/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="https://github.com/DheerajPittala8055" target="_blank"><i class="fa-brands fa-github"></i></a>
     </div>
   </section>
 
-  <!-- Contact Form -->
-  <section id="form" class="py-20 bg-white">
-    <div class="container mx-auto px-6 text-center">
-      <h3 class="text-3xl font-semibold mb-8 text-blue-600">Submit a Form</h3>
-      <form class="max-w-xl mx-auto bg-gray-50 p-8 rounded-2xl shadow space-y-4">
-        <input type="text" placeholder="Name" class="w-full p-3 rounded-md border border-gray-300" required>
-        <input type="email" placeholder="E-mail" class="w-full p-3 rounded-md border border-gray-300" required>
-        <input type="tel" placeholder="Mobile Number" class="w-full p-3 rounded-md border border-gray-300">
-        <input type="text" placeholder="Subject" class="w-full p-3 rounded-md border border-gray-300">
-        <textarea placeholder="Description" class="w-full p-3 rounded-md border border-gray-300 h-32"></textarea>
-        <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-md font-semibold hover:bg-blue-700">Submit</button>
-      </form>
-    </div>
+  <!-- Submit Form -->
+  <section id="form">
+    <h2>Submit a Form</h2>
+    <form action="https://formspree.io/f/movqqpya" method="POST">
+      <input type="text" name="Name" placeholder="Your Name" required />
+      <input type="email" name="Email" placeholder="Your Email" required />
+      <input type="tel" name="Mobile" placeholder="Your Mobile Number" required />
+      <input type="text" name="Subject" placeholder="Subject" required />
+      <textarea name="Description" rows="5" placeholder="Enter your message..." required></textarea>
+      <button type="submit">Submit</button>
+    </form>
   </section>
 
-  <!-- Go to top button -->
-  <div id="goTop"><i class="fas fa-arrow-up"></i></div>
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Dheeraj Pittala | Powered by GitHub Pages
+  </footer>
+
+  <!-- Go to Top Button -->
+  <button id="topBtn" onclick="topFunction()"><i class="fa-solid fa-arrow-up"></i></button>
 
   <script>
-    const goTop = document.getElementById("goTop");
-    window.onscroll = () => {
-      if (document.documentElement.scrollTop > 300) {
-        goTop.style.display = "block";
+    // Dark Mode Toggle
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+      document.querySelector('.toggle-theme').textContent =
+        document.body.classList.contains('dark') ? '☀️' : '🌙';
+    }
+
+    // Show "Go to Top" Button
+    window.onscroll = function() {
+      let btn = document.getElementById("topBtn");
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        btn.style.display = "block";
       } else {
-        goTop.style.display = "none";
+        btn.style.display = "none";
       }
     };
-    goTop.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
-  </script>
 
+    // Go to top
+    function topFunction() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
 </body>
 </html>
