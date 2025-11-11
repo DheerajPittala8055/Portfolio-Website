@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dheeraj Pittala</title>
+  <title>Dheeraj Pittala Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
@@ -101,7 +101,9 @@
       border-radius: 12px; padding: 18px;
       box-shadow: 0 8px 20px rgba(2,6,23,0.35);
       text-align: center;
+      transition: transform 0.3s ease;
     }
+    .skill-group:hover { transform: translateY(-6px); }
     .skill-head img {
       width: 50px; height: 50px; object-fit: contain;
       display: block; margin: 0 auto 10px;
@@ -207,11 +209,10 @@
 <section id="about">
   <h3 class="section-title">About</h3>
   <div class="about-card">
-    <p>I am a results-driven data professional with a Master’s in Data Science and 7+ years of hands-on experience across data analysis, engineering, and DevOps disciplines...</p>
+    <p>I’m a Data Analyst and Engineer passionate about transforming raw data into powerful business insights. With over 7 years of experience spanning analytics, cloud engineering, and automation, I specialize in streamlining ETL pipelines, enabling cloud-based data solutions, and delivering advanced visualizations. I’m driven by impact — from optimizing enterprise data architecture to enabling AI-driven business decisions that move organizations forward.</p>
   </div>
 </section>
 
-<!-- Skills Section -->
 <section id="skills">
   <h3 class="section-title">Skills</h3>
   <div class="skills-grid">
@@ -220,7 +221,7 @@
         <img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png"><h4>Programming Languages</h4>
       </div>
       <div class="skill-list">
-        <div>SQL</div><div>Python</div><div>R</div>
+        <div>Python (Pandas, Scikit-learn)</div><div>SQL</div><div>R</div><div>Java</div>
       </div>
     </div>
     <div class="skill-group">
@@ -233,10 +234,10 @@
     </div>
     <div class="skill-group">
       <div class="skill-head">
-        <img src="https://cdn-icons-png.flaticon.com/512/906/906343.png"><h4>Databases & Platforms</h4>
+        <img src="https://cdn-icons-png.flaticon.com/512/906/906343.png"><h4>Databases & Cloud</h4>
       </div>
       <div class="skill-list">
-        <div>Azure</div><div>MS SQL Server</div><div>Hadoop, Hive, Spark</div><div>SAS VA, SSIS, SSRS</div>
+        <div>Azure Data Factory</div><div>Google Cloud (BigQuery, DataProc)</div><div>SQL Server</div><div>Hadoop, Hive, Spark</div>
       </div>
     </div>
     <div class="skill-group">
@@ -244,7 +245,7 @@
         <img src="https://cdn-icons-png.flaticon.com/512/4248/4248443.png"><h4>Data Engineering</h4>
       </div>
       <div class="skill-list">
-        <div>GCP (BigQuery, DataProc)</div><div>ETL, ELT</div><div>Azure Data Factory</div><div>Databricks, Snowflake, PySpark</div>
+        <div>ETL / ELT Workflows</div><div>Databricks</div><div>Snowflake</div><div>Pipeline Automation</div>
       </div>
     </div>
     <div class="skill-group">
@@ -252,7 +253,7 @@
         <img src="https://cdn-icons-png.flaticon.com/512/2706/2706959.png"><h4>ML & AI</h4>
       </div>
       <div class="skill-list">
-        <div>LLMs, NLP</div><div>Scikit-learn, TensorFlow, PyTorch</div><div>Azure AI, Gen AI</div><div>APIs (REST)</div>
+        <div>LLMs, NLP</div><div>TensorFlow, Keras</div><div>Azure AI, Gen AI</div><div>Model Deployment</div>
       </div>
     </div>
     <div class="skill-group">
@@ -260,41 +261,96 @@
         <img src="https://cdn-icons-png.flaticon.com/512/4248/4248446.png"><h4>DevOps & Automation</h4>
       </div>
       <div class="skill-list">
-        <div>CI/CD (Jenkins)</div><div>Kubernetes, Docker</div><div>Git/GitHub</div><div>SCRUM, Agile (JIRA)</div>
+        <div>Jenkins, Kubernetes, Docker</div><div>Git/GitHub</div><div>CI/CD Pipelines</div><div>Agile, SCRUM</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Experience, Projects remain unchanged for brevity -->
+<section id="experience">
+  <h3 class="section-title">Professional Experience</h3>
+  <div class="timeline-wrap">
+    <div class="timeline-line"></div>
+
+    <div class="timeline-node left">
+      <div class="timeline-meta">July 2024 – Present</div>
+      <div class="timeline-role">Data Analyst | UNT Transportation Services, TX</div>
+      <p>Automated ETL workflows using Azure Data Factory, improving data processing efficiency by 20%. Developed Power BI dashboards and predictive models enhancing reporting accuracy by 30%.</p>
+    </div>
+
+    <div class="timeline-node right">
+      <div class="timeline-meta">Sept 2022 – May 2024</div>
+      <div class="timeline-role">Junior Data Analyst | UNT Transportation Services, TX</div>
+      <p>Implemented optimized database schemas and automated SQL processes. Reduced report generation time by 40% through dynamic Power BI integrations.</p>
+    </div>
+
+    <div class="timeline-node left">
+      <div class="timeline-meta">Jan 2018 – Mar 2022</div>
+      <div class="timeline-role">DevOps Engineer | Accretion Info Systems, India</div>
+      <p>Developed CI/CD pipelines using Jenkins and Kubernetes for major clients (RIO-TINTO & CARVANA), enhancing deployment efficiency and uptime reliability.</p>
+    </div>
+
+    <div class="timeline-node right">
+      <div class="timeline-meta">Aug 2017 – Jan 2018</div>
+      <div class="timeline-role">Associate Software Engineer | Accretion Info Systems, India</div>
+      <p>Optimized backend Java code and SQL queries, improving application performance and system scalability for enterprise-level clients.</p>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <h3 class="section-title">Projects</h3>
+  <div class="projects-grid">
+    <div class="project-card">
+      <h4>Power BI Transportation Insights</h4>
+      <p>Developed a Power BI dashboard integrating SQL and Azure datasets for real-time transportation metrics.</p>
+      <a href="https://github.com/DheerajPittala8055/PowerBI-Transport" target="_blank">View Project →</a>
+    </div>
+    <div class="project-card">
+      <h4>Azure Data Pipeline Automation</h4>
+      <p>Created automated data pipelines using Azure Data Factory for live data refresh in Power BI.</p>
+      <a href="https://github.com/DheerajPittala8055/Azure-Pipeline-Automation" target="_blank">View Project →</a>
+    </div>
+    <div class="project-card">
+      <h4>Sentiment Analysis System</h4>
+      <p>Designed an AI-powered Outlook email sentiment classifier using Python and NLP libraries.</p>
+      <a href="https://github.com/DheerajPittala8055/Sentiment-Analysis" target="_blank">View Project →</a>
+    </div>
+  </div>
+</section>
 
 <section id="contact">
   <h3 class="section-title">Contact</h3>
   <div class="contact-row">
-    <a href="mailto:dheerajkmp8055@gmail.com" target="_blank" class="contact-icon"><i class="fas fa-envelope"></i></a>
-    <a href="https://www.linkedin.com/in/dheeraj-pittala/" target="_blank" class="contact-icon"><i class="fab fa-linkedin"></i></a>
-    <a href="https://github.com/DheerajPittala8055" target="_blank" class="contact-icon"><i class="fab fa-github"></i></a>
+    <a href="mailto:dheerajkmp8055@gmail.com" target="_blank" class="contact-icon"><i class="fa-solid fa-envelope"></i></a>
+    <a href="https://www.linkedin.com/in/dheeraj-pittala/" target="_blank" class="contact-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+    <a href="https://github.com/DheerajPittala8055" target="_blank" class="contact-icon"><i class="fa-brands fa-github"></i></a>
   </div>
-  <h3 class="section-title">Submit a Form</h3>
-  <form action="mailto:dheerajkmp8055@gmail.com" method="POST" enctype="text/plain">
-    <input type="text" name="firstname" placeholder="First Name" required>
-    <input type="text" name="lastname" placeholder="Last Name" required>
-    <input type="tel" name="mobile" placeholder="Mobile Number" required>
+
+  <h3 style="text-align:center; margin-top:20px;">Submit a Form</h3>
+  <form action="https://formsubmit.co/dheerajkmp8055@gmail.com" method="POST">
+    <input type="text" name="first_name" placeholder="First Name" required>
+    <input type="text" name="last_name" placeholder="Last Name" required>
     <input type="email" name="email" placeholder="Email ID" required>
-    <input type="text" name="subject" placeholder="Subject" class="full" required>
+    <input type="text" name="mobile" placeholder="Mobile Number" required>
+    <input type="text" name="subject" placeholder="Subject" class="full">
     <textarea name="description" placeholder="Description" class="full" required></textarea>
-    <button type="submit" class="submit-btn full">Send Message</button>
+    <button type="submit" class="submit-btn">Send Message</button>
   </form>
 </section>
 
-<footer>&copy; 2025 Dheeraj Pittala. All rights reserved.</footer>
-<button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆️</button>
+<footer>© 2025 Dheeraj Pittala. All Rights Reserved.</footer>
+<button id="topBtn" onclick="scrollTo({top:0,behavior:'smooth'})">⬆️</button>
 
 <script>
-const themeBtn=document.getElementById('themeToggle');
-themeBtn.addEventListener('click',()=>{document.documentElement.getAttribute('data-theme')==='light'?document.documentElement.setAttribute('data-theme','dark'):document.documentElement.setAttribute('data-theme','light')});
-const topBtn=document.getElementById('topBtn');
-window.onscroll=function(){topBtn.style.display=(document.body.scrollTop>300||document.documentElement.scrollTop>300)?'block':'none'}
+  const toggle = document.getElementById("themeToggle");
+  const body = document.body;
+  toggle.onclick = () => {
+    const theme = body.getAttribute("data-theme");
+    body.setAttribute("data-theme", theme === "light" ? "dark" : "light");
+  };
+  const topBtn = document.getElementById("topBtn");
+  window.onscroll = () => { topBtn.style.display = window.scrollY > 250 ? "block" : "none"; };
 </script>
 </body>
 </html>
