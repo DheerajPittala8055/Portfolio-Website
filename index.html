@@ -108,39 +108,122 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      animation: rotate 20s linear infinite;
-    }
-    @keyframes rotate {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
     }
     .skill-icon {
       position: absolute;
-      width: 60px;
-      height: 60px;
+      width: 80px;
+      height: 80px;
       background: var(--card);
-      border-radius: 12px;
+      border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 28px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.3);
       transition: all 0.3s ease;
-      animation: float 3s ease-in-out infinite;
+      padding: 12px;
+      border: 2px solid rgba(244, 180, 26, 0.2);
     }
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
+    .skill-icon svg {
+      width: 100%;
+      height: 100%;
     }
     .skill-icon:hover {
-      transform: scale(1.2) translateY(-5px);
-      box-shadow: 0 12px 32px rgba(244, 180, 26, 0.4);
+      transform: scale(1.15);
+      box-shadow: 0 16px 40px rgba(244, 180, 26, 0.5);
+      border-color: var(--accent);
     }
-    .skill-icon:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
-    .skill-icon:nth-child(2) { top: 10%; left: 50%; transform: translateX(-50%); animation-delay: 0.5s; }
-    .skill-icon:nth-child(3) { top: 20%; right: 10%; animation-delay: 1s; }
-    .skill-icon:nth-child(4) { bottom: 20%; left: 10%; animation-delay: 1.5s; }
-    .skill-icon:nth-child(5) { bottom: 20%; right: 10%; animation-delay: 2s; }
+    
+    /* Flying animations for each icon */
+    .skill-icon:nth-child(1) { 
+      top: 20%; 
+      left: 8%; 
+      animation: flyDiagonal1 8s ease-in-out infinite;
+    }
+    .skill-icon:nth-child(2) { 
+      top: 10%; 
+      left: 50%; 
+      transform: translateX(-50%);
+      animation: flyVertical 7s ease-in-out infinite;
+    }
+    .skill-icon:nth-child(3) { 
+      top: 20%; 
+      right: 8%; 
+      animation: flyDiagonal2 9s ease-in-out infinite;
+    }
+    .skill-icon:nth-child(4) { 
+      bottom: 20%; 
+      left: 8%; 
+      animation: flyHorizontal1 8.5s ease-in-out infinite;
+    }
+    .skill-icon:nth-child(5) { 
+      bottom: 20%; 
+      right: 8%; 
+      animation: flyCircular 10s ease-in-out infinite;
+    }
+    
+    @keyframes flyDiagonal1 {
+      0%, 100% { transform: translate(0, 0); }
+      25% { transform: translate(30px, -20px); }
+      50% { transform: translate(60px, 0); }
+      75% { transform: translate(30px, 20px); }
+    }
+    
+    @keyframes flyVertical {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-30px); }
+    }
+    
+    @keyframes flyDiagonal2 {
+      0%, 100% { transform: translate(0, 0); }
+      25% { transform: translate(-30px, 20px); }
+      50% { transform: translate(-60px, 0); }
+      75% { transform: translate(-30px, -20px); }
+    }
+    
+    @keyframes flyHorizontal1 {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(50px, -15px); }
+    }
+    
+    @keyframes flyCircular {
+      0% { transform: translate(0, 0); }
+      25% { transform: translate(-25px, -25px); }
+      50% { transform: translate(0, -40px); }
+      75% { transform: translate(25px, -25px); }
+      100% { transform: translate(0, 0); }
+    }
+    
+    /* Animated chart bars */
+    @keyframes barGrow {
+      0%, 100% { height: 30%; }
+      50% { height: 70%; }
+    }
+    @keyframes barGrow2 {
+      0%, 100% { height: 50%; }
+      50% { height: 85%; }
+    }
+    @keyframes barGrow3 {
+      0%, 100% { height: 40%; }
+      50% { height: 60%; }
+    }
+    
+    /* Animated pie rotation */
+    @keyframes pieRotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    /* Pulse animation for nodes */
+    @keyframes pulse {
+      0%, 100% { opacity: 0.6; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+    
+    /* Line drawing animation */
+    @keyframes drawLine {
+      0% { stroke-dashoffset: 100; }
+      100% { stroke-dashoffset: 0; }
+    }
     
     .hero-center {
       position: relative;
@@ -459,7 +542,7 @@
       }
       .hero h2 { font-size: 32px; }
       .hero-visual { height: 200px; }
-      .skill-icon { width: 45px; height: 45px; font-size: 20px; }
+      .skill-icon { width: 60px; height: 60px; }
       .chat-message {
         max-width: 85%;
       }
@@ -470,7 +553,7 @@
 <body data-theme="dark">
 <header>
   <div class="brand">
-    <img src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png" alt="logo" width="38"/>
+    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Dheeraj Pittala" width="38" style="border-radius: 50%; border: 2px solid var(--accent);"/>
     <h1>Dheeraj Pittala</h1>
   </div>
   <div class="right-group">
@@ -490,16 +573,123 @@
 <section class="hero" id="home">
   <div class="hero-visual">
     <div class="skill-orbit">
-      <div class="skill-icon" title="Data Analysis">📊</div>
-      <div class="skill-icon" title="Data Engineering">⚙️</div>
-      <div class="skill-icon" title="Data Science">🔬</div>
-      <div class="skill-icon" title="AI/ML">🤖</div>
-      <div class="skill-icon" title="Cloud">☁️</div>
+      <!-- Bar Chart Animation -->
+      <div class="skill-icon" title="Data Analysis">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <rect x="15" y="70" width="15" height="0" fill="var(--accent)" style="animation: barGrow 2s ease-in-out infinite;">
+            <animate attributeName="height" values="20;50;20" dur="2s" repeatCount="indefinite"/>
+            <animate attributeName="y" values="70;40;70" dur="2s" repeatCount="indefinite"/>
+          </rect>
+          <rect x="42.5" y="70" width="15" height="0" fill="var(--accent-2)" style="animation: barGrow2 2s ease-in-out infinite 0.3s;">
+            <animate attributeName="height" values="40;70;40" dur="2s" repeatCount="indefinite" begin="0.3s"/>
+            <animate attributeName="y" values="70;20;70" dur="2s" repeatCount="indefinite" begin="0.3s"/>
+          </rect>
+          <rect x="70" y="70" width="15" height="0" fill="var(--accent)" style="animation: barGrow3 2s ease-in-out infinite 0.6s;">
+            <animate attributeName="height" values="30;55;30" dur="2s" repeatCount="indefinite" begin="0.6s"/>
+            <animate attributeName="y" values="70;35;70" dur="2s" repeatCount="indefinite" begin="0.6s"/>
+          </rect>
+        </svg>
+      </div>
+      
+      <!-- Line Chart Animation -->
+      <div class="skill-icon" title="Data Engineering">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <polyline points="10,80 30,60 50,50 70,30 90,20" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round">
+            <animate attributeName="stroke-dasharray" values="0,200;200,0;0,200" dur="3s" repeatCount="indefinite"/>
+          </polyline>
+          <circle cx="10" cy="80" r="4" fill="var(--accent)">
+            <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="30" cy="60" r="4" fill="var(--accent)">
+            <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite" begin="0.3s"/>
+          </circle>
+          <circle cx="50" cy="50" r="4" fill="var(--accent-2)">
+            <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite" begin="0.6s"/>
+          </circle>
+          <circle cx="70" cy="30" r="4" fill="var(--accent)">
+            <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite" begin="0.9s"/>
+          </circle>
+          <circle cx="90" cy="20" r="4" fill="var(--accent)">
+            <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite" begin="1.2s"/>
+          </circle>
+        </svg>
+      </div>
+      
+      <!-- Pie Chart Animation -->
+      <div class="skill-icon" title="Data Science">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="40" fill="none" stroke="var(--card)" stroke-width="2"/>
+          <circle cx="50" cy="50" r="40" fill="none" stroke="var(--accent)" stroke-width="8" stroke-dasharray="75 251" transform="rotate(-90 50 50)">
+            <animateTransform attributeName="transform" type="rotate" from="-90 50 50" to="270 50 50" dur="3s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="50" cy="50" r="40" fill="none" stroke="var(--accent-2)" stroke-width="8" stroke-dasharray="100 251" stroke-dashoffset="-75" transform="rotate(-90 50 50)">
+            <animateTransform attributeName="transform" type="rotate" from="-90 50 50" to="270 50 50" dur="3s" repeatCount="indefinite"/>
+          </circle>
+        </svg>
+      </div>
+      
+      <!-- Neural Network Animation -->
+      <div class="skill-icon" title="AI/ML">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <line x1="20" y1="30" x2="50" y2="50" stroke="var(--accent)" stroke-width="2" opacity="0.4">
+            <animate attributeName="opacity" values="0.2;0.8;0.2" dur="2s" repeatCount="indefinite"/>
+          </line>
+          <line x1="20" y1="50" x2="50" y2="50" stroke="var(--accent)" stroke-width="2" opacity="0.4">
+            <animate attributeName="opacity" values="0.2;0.8;0.2" dur="2s" repeatCount="indefinite" begin="0.3s"/>
+          </line>
+          <line x1="20" y1="70" x2="50" y2="50" stroke="var(--accent)" stroke-width="2" opacity="0.4">
+            <animate attributeName="opacity" values="0.2;0.8;0.2" dur="2s" repeatCount="indefinite" begin="0.6s"/>
+          </line>
+          <line x1="50" y1="50" x2="80" y2="40" stroke="var(--accent-2)" stroke-width="2" opacity="0.4">
+            <animate attributeName="opacity" values="0.2;0.8;0.2" dur="2s" repeatCount="indefinite" begin="0.9s"/>
+          </line>
+          <line x1="50" y1="50" x2="80" y2="60" stroke="var(--accent-2)" stroke-width="2" opacity="0.4">
+            <animate attributeName="opacity" values="0.2;0.8;0.2" dur="2s" repeatCount="indefinite" begin="1.2s"/>
+          </line>
+          <circle cx="20" cy="30" r="5" fill="var(--accent)">
+            <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="20" cy="50" r="5" fill="var(--accent)">
+            <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite" begin="0.3s"/>
+          </circle>
+          <circle cx="20" cy="70" r="5" fill="var(--accent)">
+            <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite" begin="0.6s"/>
+          </circle>
+          <circle cx="50" cy="50" r="6" fill="var(--accent-2)">
+            <animate attributeName="r" values="5;8;5" dur="2s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="80" cy="40" r="5" fill="var(--accent-2)">
+            <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite" begin="0.9s"/>
+          </circle>
+          <circle cx="80" cy="60" r="5" fill="var(--accent-2)">
+            <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite" begin="1.2s"/>
+          </circle>
+        </svg>
+      </div>
+      
+      <!-- Cloud Data Flow Animation -->
+      <div class="skill-icon" title="Cloud & Big Data">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="M30,45 Q30,35 40,35 Q40,25 50,25 Q60,25 60,35 Q70,35 70,45 Q70,55 60,55 L40,55 Q30,55 30,45 Z" fill="none" stroke="var(--accent)" stroke-width="3"/>
+          <circle cx="35" cy="70" r="3" fill="var(--accent)">
+            <animate attributeName="cy" values="70;30;70" dur="3s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="50" cy="70" r="3" fill="var(--accent-2)">
+            <animate attributeName="cy" values="70;30;70" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+            <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+          </circle>
+          <circle cx="65" cy="70" r="3" fill="var(--accent)">
+            <animate attributeName="cy" values="70;30;70" dur="3s" repeatCount="indefinite" begin="1s"/>
+            <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite" begin="1s"/>
+          </circle>
+        </svg>
+      </div>
     </div>
   </div>
   <div class="hero-center">
     <h2>Dheeraj Pittala</h2>
-    <p>Data Analyst | Data Engineer | Data Scientist | AI / ML Engineer</p>
+    <p>Business Data Analyst @ Ecolab | Data Engineer | Data Scientist | AI / ML Engineer</p>
   </div>
   <button class="cta" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">Know more</button>
 </section>
@@ -508,13 +698,13 @@
   <h3 class="section-title">About Me</h3>
   <div class="about-card">
     <h4>🎓 My Journey</h4>
-    <p>My path in data began over 7 years ago when I discovered the power of turning raw information into actionable insights. Starting as a Software Engineer, I evolved through DevOps, eventually finding my true calling in data analytics and engineering. My academic pursuit at the University of North Texas further sharpened my expertise in advanced analytics, cloud architecture, and AI/ML applications.</p>
+    <p>My path in data began over 7 years ago when I discovered the power of turning raw information into actionable insights. Starting as a Software Engineer, I evolved through DevOps, eventually finding my true calling in the intersection of data analytics, engineering, and science. My academic pursuit at the University of North Texas further sharpened my expertise in advanced analytics, cloud architecture, machine learning, and AI applications—making me a versatile data professional who thrives at the crossroads of technology and business intelligence.</p>
     
     <h4>💼 What I Do Today</h4>
-    <p>Currently, as a Data Analyst at UNT Transportation Services, I architect end-to-end data solutions that drive real business impact. I specialize in building automated ETL pipelines using Azure Data Factory, creating compelling Power BI dashboards that tell data stories, and developing predictive models that help organizations make smarter decisions. My work bridges the gap between complex data engineering and accessible business intelligence.</p>
+    <p>Currently, as a Business Data Analyst at Ecolab, I bring together my unique blend of data analysis, engineering, and data science expertise to architect comprehensive data solutions. I don't just analyze data—I engineer robust ETL pipelines using Azure Data Factory, apply data science methodologies to build predictive models, and leverage AI/ML techniques to uncover hidden patterns. My work spans the entire data lifecycle: from designing scalable data infrastructure and automating complex workflows, to creating compelling Power BI dashboards and deploying intelligent analytics that drive strategic business decisions.</p>
     
     <h4>🚀 Vision for Tomorrow</h4>
-    <p>I'm passionate about pushing the boundaries of what's possible with data and AI. My vision is to lead transformative data initiatives that leverage cutting-edge technologies—from generative AI to real-time analytics—to solve complex business challenges. I aim to build scalable, intelligent systems that not only process data efficiently but also democratize insights across organizations, enabling everyone to make data-driven decisions with confidence.</p>
+    <p>I'm passionate about pushing the boundaries of what's possible at the convergence of data analytics, engineering, and artificial intelligence. My vision is to lead transformative initiatives that harness cutting-edge AI technologies—from generative AI and large language models to real-time predictive analytics—solving complex business challenges at scale. I aim to build intelligent, self-optimizing data ecosystems that not only process information efficiently but also learn, adapt, and democratize insights across organizations. My goal is to empower every stakeholder with AI-augmented decision-making capabilities, turning data into a true competitive advantage.</p>
   </div>
 </section>
 
@@ -576,24 +766,30 @@
   <h3 class="section-title">Professional Experience</h3>
   <div class="timeline-wrap">
     <div class="chat-message left">
-      <div class="timeline-meta">July 2024 – Present</div>
+      <div class="timeline-meta">May 2025 – Present</div>
+      <div class="timeline-role">Business Data Analyst | Ecolab</div>
+      <p>Leading data-driven initiatives to optimize business operations and enhance decision-making through advanced analytics, automated reporting solutions, and strategic insights.</p>
+    </div>
+
+    <div class="chat-message right">
+      <div class="timeline-meta">July 2024 – June 2025</div>
       <div class="timeline-role">Data Analyst | UNT Transportation Services, TX</div>
       <p>Automated ETL workflows using Azure Data Factory, improving data processing efficiency by 20%. Developed Power BI dashboards and predictive models enhancing reporting accuracy by 30%.</p>
     </div>
 
-    <div class="chat-message right">
+    <div class="chat-message left">
       <div class="timeline-meta">Sept 2022 – May 2024</div>
       <div class="timeline-role">Junior Data Analyst | UNT Transportation Services, TX</div>
       <p>Implemented optimized database schemas and automated SQL processes. Reduced report generation time by 40% through dynamic Power BI integrations.</p>
     </div>
 
-    <div class="chat-message left">
+    <div class="chat-message right">
       <div class="timeline-meta">Jan 2018 – Mar 2022</div>
       <div class="timeline-role">DevOps Engineer | Accretion Info Systems, India</div>
       <p>Developed CI/CD pipelines using Jenkins and Kubernetes for major clients (RIO-TINTO & CARVANA), enhancing deployment efficiency and uptime reliability.</p>
     </div>
 
-    <div class="chat-message right">
+    <div class="chat-message left">
       <div class="timeline-meta">Aug 2017 – Jan 2018</div>
       <div class="timeline-role">Associate Software Engineer | Accretion Info Systems, India</div>
       <p>Optimized backend Java code and SQL queries, improving application performance and system scalability for enterprise-level clients.</p>
