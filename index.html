@@ -127,20 +127,21 @@
       z-index: 1;
     }
     
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      max-width: 900px;
+    }
+    
+    /* Animated Data Visualizations */
     .hero-animations {
       position: absolute;
       width: 100%;
       height: 100%;
       top: 0;
       left: 0;
-      z-index: 2;
+      z-index: 5;
       pointer-events: none;
-    }
-    
-    .skill-orbit {
-      position: absolute;
-      width: 100%;
-      height: 100%;
     }
     
     .skill-icon {
@@ -156,6 +157,7 @@
       transition: all 0.3s ease;
       padding: 12px;
       border: 2px solid rgba(244, 180, 26, 0.2);
+      pointer-events: auto;
     }
     .skill-icon svg {
       width: 100%;
@@ -276,12 +278,6 @@
       50% { transform: translate(-35px, -50px) rotate(180deg); }
       75% { transform: translate(0, -50px) rotate(270deg); }
       100% { transform: translate(0, 0) rotate(360deg); }
-    }
-    
-    .hero-content {
-      position: relative;
-      z-index: 10;
-      max-width: 900px;
     }
     
     .hero h2 { 
@@ -780,6 +776,16 @@
       .stat-number { font-size: 32px; }
       .cta-group { gap: 15px; }
       .hero .cta { padding: 14px 28px; font-size: 14px; }
+      .skill-icon { width: 60px; height: 60px; }
+      .skill-icon:nth-child(1) { top: 10%; left: 3%; }
+      .skill-icon:nth-child(2) { top: 5%; left: 20%; }
+      .skill-icon:nth-child(3) { top: 3%; left: 50%; }
+      .skill-icon:nth-child(4) { top: 5%; right: 20%; }
+      .skill-icon:nth-child(5) { top: 10%; right: 3%; }
+      .skill-icon:nth-child(6) { bottom: 10%; left: 5%; }
+      .skill-icon:nth-child(7) { bottom: 10%; left: 30%; }
+      .skill-icon:nth-child(8) { bottom: 10%; right: 30%; }
+      .skill-icon:nth-child(9) { bottom: 10%; right: 5%; }
       .climbing-line {
         left: 20px;
         transform: none;
@@ -829,6 +835,197 @@
 
 <section class="hero" id="home">
   <div class="hero-grid"></div>
+  
+  <!-- Animated Data Visualizations -->
+  <div class="hero-animations">
+    <!-- Bar Chart Animation -->
+    <div class="skill-icon" title="Data Analysis">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect x="15" y="70" width="15" height="0" fill="var(--accent)">
+          <animate attributeName="height" values="20;50;20" dur="2s" repeatCount="indefinite"/>
+          <animate attributeName="y" values="70;40;70" dur="2s" repeatCount="indefinite"/>
+        </rect>
+        <rect x="42.5" y="70" width="15" height="0" fill="var(--accent-2)">
+          <animate attributeName="height" values="40;70;40" dur="2s" repeatCount="indefinite" begin="0.3s"/>
+          <animate attributeName="y" values="70;20;70" dur="2s" repeatCount="indefinite" begin="0.3s"/>
+        </rect>
+        <rect x="70" y="70" width="15" height="0" fill="var(--accent)">
+          <animate attributeName="height" values="30;55;30" dur="2s" repeatCount="indefinite" begin="0.6s"/>
+          <animate attributeName="y" values="70;35;70" dur="2s" repeatCount="indefinite" begin="0.6s"/>
+        </rect>
+      </svg>
+    </div>
+    
+    <!-- Line Chart Animation -->
+    <div class="skill-icon" title="Data Engineering">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <polyline points="10,80 30,60 50,50 70,30 90,20" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round">
+          <animate attributeName="stroke-dasharray" values="0,200;200,0;0,200" dur="3s" repeatCount="indefinite"/>
+        </polyline>
+        <circle cx="10" cy="80" r="4" fill="var(--accent)">
+          <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="30" cy="60" r="4" fill="var(--accent)">
+          <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite" begin="0.3s"/>
+        </circle>
+        <circle cx="50" cy="50" r="4" fill="var(--accent-2)">
+          <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite" begin="0.6s"/>
+        </circle>
+        <circle cx="70" cy="30" r="4" fill="var(--accent)">
+          <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite" begin="0.9s"/>
+        </circle>
+        <circle cx="90" cy="20" r="4" fill="var(--accent)">
+          <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite" begin="1.2s"/>
+        </circle>
+      </svg>
+    </div>
+    
+    <!-- Pie Chart Animation -->
+    <div class="skill-icon" title="Data Science">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="40" fill="none" stroke="var(--card)" stroke-width="2"/>
+        <circle cx="50" cy="50" r="40" fill="none" stroke="var(--accent)" stroke-width="8" stroke-dasharray="75 251" transform="rotate(-90 50 50)">
+          <animateTransform attributeName="transform" type="rotate" from="-90 50 50" to="270 50 50" dur="3s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="50" cy="50" r="40" fill="none" stroke="var(--accent-2)" stroke-width="8" stroke-dasharray="100 251" stroke-dashoffset="-75" transform="rotate(-90 50 50)">
+          <animateTransform attributeName="transform" type="rotate" from="-90 50 50" to="270 50 50" dur="3s" repeatCount="indefinite"/>
+        </circle>
+      </svg>
+    </div>
+    
+    <!-- Database Animation -->
+    <div class="skill-icon" title="Database Management">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="50" cy="25" rx="35" ry="12" fill="none" stroke="var(--accent)" stroke-width="3"/>
+        <ellipse cx="50" cy="50" rx="35" ry="12" fill="none" stroke="var(--accent)" stroke-width="3">
+          <animate attributeName="rx" values="35;38;35" dur="2s" repeatCount="indefinite"/>
+        </ellipse>
+        <ellipse cx="50" cy="75" rx="35" ry="12" fill="none" stroke="var(--accent-2)" stroke-width="3">
+          <animate attributeName="rx" values="35;40;35" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+        </ellipse>
+        <line x1="15" y1="25" x2="15" y2="75" stroke="var(--accent)" stroke-width="3"/>
+        <line x1="85" y1="25" x2="85" y2="75" stroke="var(--accent)" stroke-width="3"/>
+      </svg>
+    </div>
+    
+    <!-- Neural Network Animation -->
+    <div class="skill-icon" title="AI/ML">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <line x1="20" y1="30" x2="50" y2="50" stroke="var(--accent)" stroke-width="2" opacity="0.4">
+          <animate attributeName="opacity" values="0.2;0.8;0.2" dur="2s" repeatCount="indefinite"/>
+        </line>
+        <line x1="20" y1="50" x2="50" y2="50" stroke="var(--accent)" stroke-width="2" opacity="0.4">
+          <animate attributeName="opacity" values="0.2;0.8;0.2" dur="2s" repeatCount="indefinite" begin="0.3s"/>
+        </line>
+        <line x1="20" y1="70" x2="50" y2="50" stroke="var(--accent)" stroke-width="2" opacity="0.4">
+          <animate attributeName="opacity" values="0.2;0.8;0.2" dur="2s" repeatCount="indefinite" begin="0.6s"/>
+        </line>
+        <line x1="50" y1="50" x2="80" y2="40" stroke="var(--accent-2)" stroke-width="2" opacity="0.4">
+          <animate attributeName="opacity" values="0.2;0.8;0.2" dur="2s" repeatCount="indefinite" begin="0.9s"/>
+        </line>
+        <line x1="50" y1="50" x2="80" y2="60" stroke="var(--accent-2)" stroke-width="2" opacity="0.4">
+          <animate attributeName="opacity" values="0.2;0.8;0.2" dur="2s" repeatCount="indefinite" begin="1.2s"/>
+        </line>
+        <circle cx="20" cy="30" r="5" fill="var(--accent)">
+          <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="20" cy="50" r="5" fill="var(--accent)">
+          <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite" begin="0.3s"/>
+        </circle>
+        <circle cx="20" cy="70" r="5" fill="var(--accent)">
+          <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite" begin="0.6s"/>
+        </circle>
+        <circle cx="50" cy="50" r="6" fill="var(--accent-2)">
+          <animate attributeName="r" values="5;8;5" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="80" cy="40" r="5" fill="var(--accent-2)">
+          <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite" begin="0.9s"/>
+        </circle>
+        <circle cx="80" cy="60" r="5" fill="var(--accent-2)">
+          <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite" begin="1.2s"/>
+        </circle>
+      </svg>
+    </div>
+    
+    <!-- ETL Pipeline Animation -->
+    <div class="skill-icon" title="ETL Pipelines">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="40" width="20" height="20" rx="3" fill="var(--accent)" opacity="0.8"/>
+        <rect x="40" y="40" width="20" height="20" rx="3" fill="var(--accent-2)" opacity="0.8">
+          <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
+        </rect>
+        <rect x="70" y="40" width="20" height="20" rx="3" fill="var(--accent)" opacity="0.8"/>
+        <path d="M 30 50 L 40 50" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrow)">
+          <animate attributeName="stroke-dasharray" values="0,10;10,0" dur="1.5s" repeatCount="indefinite"/>
+        </path>
+        <path d="M 60 50 L 70 50" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrow)">
+          <animate attributeName="stroke-dasharray" values="0,10;10,0" dur="1.5s" repeatCount="indefinite" begin="0.5s"/>
+        </path>
+        <defs>
+          <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="3" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,0 L0,6 L9,3 z" fill="var(--accent)" />
+          </marker>
+        </defs>
+      </svg>
+    </div>
+    
+    <!-- Cloud Data Flow Animation -->
+    <div class="skill-icon" title="Cloud & Big Data">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M30,45 Q30,35 40,35 Q40,25 50,25 Q60,25 60,35 Q70,35 70,45 Q70,55 60,55 L40,55 Q30,55 30,45 Z" fill="none" stroke="var(--accent)" stroke-width="3"/>
+        <circle cx="35" cy="70" r="3" fill="var(--accent)">
+          <animate attributeName="cy" values="70;30;70" dur="3s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="50" cy="70" r="3" fill="var(--accent-2)">
+          <animate attributeName="cy" values="70;30;70" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+          <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+        </circle>
+        <circle cx="65" cy="70" r="3" fill="var(--accent)">
+          <animate attributeName="cy" values="70;30;70" dur="3s" repeatCount="indefinite" begin="1s"/>
+          <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite" begin="1s"/>
+        </circle>
+      </svg>
+    </div>
+    
+    <!-- Dashboard/BI Animation -->
+    <div class="skill-icon" title="Business Intelligence">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="10" width="80" height="80" rx="5" fill="none" stroke="var(--accent)" stroke-width="2"/>
+        <rect x="15" y="50" width="12" height="25" fill="var(--accent)">
+          <animate attributeName="height" values="25;35;25" dur="2s" repeatCount="indefinite"/>
+          <animate attributeName="y" values="50;40;50" dur="2s" repeatCount="indefinite"/>
+        </rect>
+        <rect x="32" y="45" width="12" height="30" fill="var(--accent-2)">
+          <animate attributeName="height" values="30;40;30" dur="2s" repeatCount="indefinite" begin="0.3s"/>
+          <animate attributeName="y" values="45;35;45" dur="2s" repeatCount="indefinite" begin="0.3s"/>
+        </rect>
+        <rect x="49" y="40" width="12" height="35" fill="var(--accent)">
+          <animate attributeName="height" values="35;45;35" dur="2s" repeatCount="indefinite" begin="0.6s"/>
+          <animate attributeName="y" values="40;30;40" dur="2s" repeatCount="indefinite" begin="0.6s"/>
+        </rect>
+        <circle cx="70" cy="30" r="8" fill="none" stroke="var(--accent-2)" stroke-width="2">
+          <animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite"/>
+        </circle>
+      </svg>
+    </div>
+    
+    <!-- Algorithm/Code Animation -->
+    <div class="skill-icon" title="Algorithms & Optimization">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <text x="20" y="35" fill="var(--accent)" font-family="monospace" font-size="20" font-weight="bold">&lt;/&gt;</text>
+        <rect x="15" y="50" width="70" height="4" fill="var(--accent)" opacity="0.6">
+          <animate attributeName="width" values="70;50;70" dur="2s" repeatCount="indefinite"/>
+        </rect>
+        <rect x="15" y="60" width="55" height="4" fill="var(--accent-2)" opacity="0.6">
+          <animate attributeName="width" values="55;70;55" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+        </rect>
+        <rect x="15" y="70" width="65" height="4" fill="var(--accent)" opacity="0.6">
+          <animate attributeName="width" values="65;45;65" dur="2s" repeatCount="indefinite" begin="1s"/>
+        </rect>
+      </svg>
+    </div>
+  </div>
   
   <div class="hero-content">
     <h2>Dheeraj Pittala</h2>
